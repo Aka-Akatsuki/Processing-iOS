@@ -1,0 +1,54 @@
+// ranndom line draw
+//
+//define variable
+float x;
+float y;
+float ys;
+float xs;
+float Wid;
+float clr1;
+float clr2;
+float clr3;
+
+void setup() {
+
+   //size(screen.width, screen.height);
+   size(1000,700);
+   clr1 = random(256);
+   clr2 = random(256);
+   clr3 = random(256);
+   x = 10;
+   y = 10;
+   Wid = 50;
+   frameRate(30);  //display speed
+   background(225,225,225);
+
+}
+
+void draw() {
+
+   stroke(clr1,clr2,clr3);
+   strokeWeight(3);
+   //print(clr1);
+   //background(200,200,200);
+
+   if (mousePressed == true) {
+      //line(mouseX, y, mouseX, y);
+      x = mouseX;
+      y = mouseY;
+   }
+   line(x + xs, y, x + xs + Wid, y);
+
+   y = y + 20;
+
+   if (y > 700) { 
+       xs = random(Wid);
+       y = 10 + random(20);
+       float r = random(900); 
+       x = r;
+       clr1 = random(256);
+       clr2 = random(256);
+       clr3 = random(256);
+   }
+
+}
